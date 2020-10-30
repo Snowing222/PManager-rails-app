@@ -1,0 +1,33 @@
+<h1>Request a new Sample</h1>
+
+<%=form_for @sample do |f|%>
+  <p>
+  <strong><%=f.label :sample_type%></strong>
+  <%=f.select :sample_type, Sample.sample_types.keys%>
+  </p>
+
+  <p>
+  <strong><%=f.label :comment%></strong>
+  <%=f.text_area :comment, size: '50x10'%>
+  </p>
+
+  <%=f.hidden_field :product_id%>
+
+  <%=f.field_for :status do |f|%>
+    <%=f.hidden_field :current_status, :value => 0%>
+    <%=f.hidden_field :owner_id, :value => @product.manufacture_partner.id%>
+    <%=f.date_field :deadline%>
+    <%=f.hidden_field :sample_id, :value => @sample.id%>
+  <%end%>
+
+  <%=f.submit "Sent Sample Request"%>
+<%end%>
+
+    t.integer "current_state"
+    t.integer "owner_id"
+    t.date "deadline"
+    t.integer "sample_id"
+
+
+
+

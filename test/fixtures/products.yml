@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  season: MyString
+  style_number: MyString
+  image_url: MyString
+  description: MyText
+  status: MyString
+  deadline: 2020-10-28
+  production_partner_id: 1
+  design_partner_id: 1
+  manufacture_partner_id: 1
+
+two:
+  season: MyString
+  style_number: MyString
+  image_url: MyString
+  description: MyText
+  status: MyString
+  deadline: 2020-10-28
+  production_partner_id: 1
+  design_partner_id: 1
+  manufacture_partner_id: 1

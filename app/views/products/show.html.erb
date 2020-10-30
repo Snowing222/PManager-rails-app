@@ -1,0 +1,47 @@
+<h1><%=@product.season%> <%=@product.style_number%></h1>
+<%=link_to 'EDIT PRODUCT', edit_product_path(@product)%>
+  
+  </p><strong>Product Description</strong>
+  <%=@product.description%></p>
+  
+  </p><strong>Image</strong>
+  <%=@product.image_url%></p>
+
+  </p><strong>Create at:</strong>
+  <%=@product.created_at%> By <%=link_to @user.role, @user%></p>
+
+  </p><strong>Last Updated at:</strong>
+  <%=@product.updated_at%></p>
+
+  </p><strong>Deadline</strong>
+  <%=@product.deadline%></p>
+
+
+  </p><strong>Status:</strong>
+  <%=@product.product_status%></p>
+  
+  </p><strong>Design Partner:</strong>
+  <%=@product.design_partner.name%></p>
+
+  </p><strong>Manufacture Partner:</strong>
+  <%=@product.manufacture_partner.name%></p>
+
+  </p><strong>Production Partner:</strong>
+  <%=@product.production_partner.name%></p>
+  
+  <%if @product.samples.empty?%>
+    <%=form_tag(new_sample_path, method: :get) %>
+      <%=hidden_field_tag :product_id, @product.id%>
+      <%=submit_tag 'REQUEST A NEW SAMPLE'%>
+  <%else%>
+    <br>
+    <hr>
+    <br>
+    <h2>PRODUCT HISTORY</h2>
+    <%@product.samples.each do |s|%>
+      <p><strong>Sample Type: <%=s.sample_type%></strong></p>
+      <p><strong>Last Update:</strong> <%=s.updated_at%>
+      <br>
+      <br>
+    <%end%>
+   <%end%>

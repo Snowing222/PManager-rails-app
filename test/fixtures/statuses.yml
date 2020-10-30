@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  current_state: MyString
+  owner_id: 1
+  deadline: 2020-10-29
+  sample_id: 1
+
+two:
+  current_state: MyString
+  owner_id: 1
+  deadline: 2020-10-29
+  sample_id: 1
