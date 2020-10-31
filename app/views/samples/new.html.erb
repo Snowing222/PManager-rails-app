@@ -1,33 +1,26 @@
 <h1>Request a new Sample</h1>
 
-<%=form_for @sample do |f|%>
+<%=form_for @sample do |sample_builder|%>
   <p>
-  <strong><%=f.label :sample_type%></strong>
-  <%=f.select :sample_type, Sample.sample_types.keys%>
+  <strong><%=sample_builder.label :sample_type%></strong>
+  <%=sample_builder.select :sample_type, Sample.sample_types.keys%>
   </p>
 
   <p>
-  <strong><%=f.label :comment%></strong>
-  <%=f.text_area :comment, size: '50x10'%>
+  <strong><%=sample_builder.label :comment%></strong>
+  <%=sample_builder.text_area :comment, size: '50x10'%>
   </p>
 
-  <%=f.hidden_field :product_id%>
-
-  <%=f.field_for :status do |f|%>
-    <%=f.hidden_field :current_status, :value => 0%>
-    <%=f.hidden_field :owner_id, :value => @product.manufacture_partner.id%>
-    <%=f.date_field :deadline%>
-    <%=f.hidden_field :sample_id, :value => @sample.id%>
+  <%=sample_builder.hidden_field :product_id%>
+   
+  <%=sample_builder.fields_for :status do |status_builder|%>
+    <%=status_builder.hidden_field :current_status, :value => 0%>
+    <%=status_builder.hidden_field :owner_id, :value => @product.manufacture_partner.id%>
+    <p><%=status_builder.date_field :deadline%></p>
   <%end%>
 
-  <%=f.submit "Sent Sample Request"%>
+ 
+
+  <%=sample_builder.submit "Sent Sample Request"%>
 <%end%>
-
-    t.integer "current_state"
-    t.integer "owner_id"
-    t.date "deadline"
-    t.integer "sample_id"
-
-
-
 
