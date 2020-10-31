@@ -2,6 +2,7 @@ class SamplesController < ApplicationController
     def new
         @product = Product.find(params[:product_id])
         @sample = @product.samples.new
+        @sample.statuses.build
      
     end
 

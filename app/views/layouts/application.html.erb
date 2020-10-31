@@ -11,6 +11,7 @@
   </head>
 
   <body>
+    <%if logged_in?%>
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
       <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">MY COMPANY</a>
       <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
@@ -95,7 +96,37 @@
     
     <%= yield %>
           
-         
+
+        </main>
+        
+      </div>
+    </div>
+
+    <%else%>
+     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">MY COMPANY</a>
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" href="#">Sign out</a>
+        </li>
+      </ul>
+    </nav>
+     <%if flash[:error]%>
+      <div class="bg-danger"><%=flash[:error]%></div>
+    <%else%>
+      <div class='bg-success'><%=flash[:error]%></div>
+    <%end%>
+    
+    <%= yield %>
+
+    <%end%>
+
+  </body>
+</html>
+
+
+
+<%#          
           <h2>Section title</h2>
           <div class="table-responsive">
             <table class="table table-striped table-sm">
@@ -119,11 +150,5 @@
                
               </tbody>
             </table>
-          </div>
-        </main>
-        
-      </div>
-    </div>
+          </div> %>
 
-  </body>
-</html>
