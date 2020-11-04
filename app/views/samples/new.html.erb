@@ -13,8 +13,8 @@
 
   <%=sample_builder.hidden_field :product_id%>
    
-  <%=sample_builder.fields_for :status do |status_builder|%>
-    <%=status_builder.hidden_field :current_status, :value => 0%>
+  <%=sample_builder.fields_for :statuses do |status_builder|%>
+    <%=status_builder.hidden_field :current_state, :value => "PENDING_SAMPLE_FROM_MANUFACTURE_PARTNER"%>
     <%=status_builder.hidden_field :owner_id, :value => @product.manufacture_partner.id%>
     <p><%=status_builder.date_field :deadline%></p>
   <%end%>

@@ -40,4 +40,13 @@ elsa.save
 jane.save
 hellen.save
 
+product = Product.new(style_number:"001",description:"skirt")
+product.production_partner = anj
+product.manufacture_partner = jane
+product.design_partner = xue
+product.save
+
+
+
+
 

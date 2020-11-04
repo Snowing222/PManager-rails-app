@@ -23,6 +23,6 @@ class SessionsController < ApplicationController
 
     def destroy
         reset_session
-        redirect_to '/'
+        redirect_to login_path
     end
 end

@@ -30,9 +30,7 @@
   <%=@product.production_partner.name%></p>
   
   <%if @product.samples.empty?%>
-    <%=form_tag(new_sample_path, method: :get) %>
-      <%=hidden_field_tag :product_id, @product.id%>
-      <%=submit_tag 'REQUEST A NEW SAMPLE'%>
+    <%=link_to "REQUEST A NEW SAMPLE", new_product_sample_path(@product.id) %>
   <%else%>
     <br>
     <hr>

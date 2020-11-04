@@ -5,4 +5,11 @@ class Sample < ApplicationRecord
     delegate :design_partner, to: :product
     delegate :manufacture_partner, to: :product 
     enum sample_type: [:PROTO, :FIT_SAMPLE, :PP, :TOP]
+
+    accepts_nested_attributes_for :statuses
+
+    def sample_current_status
+        self.statuses.last
+    end
+
 end

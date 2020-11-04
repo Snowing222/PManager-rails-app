@@ -17,7 +17,7 @@
       <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="#">Sign out</a>
+          <%= link_to "Log out", logout_path, method: :delete, class: "nav-link" %>
         </li>
       </ul>
     </nav>
@@ -91,7 +91,7 @@
     <%if flash[:error]%>
       <div class="bg-danger"><%=flash[:error]%></div>
     <%else%>
-      <div class='bg-success'><%=flash[:error]%></div>
+      <div class='bg-success'><%=flash[:success]%></div>
     <%end%>
     
     <%= yield %>
@@ -116,7 +116,7 @@
     <%else%>
       <div class='bg-success'><%=flash[:error]%></div>
     <%end%>
-    
+
     <%= yield %>
 
     <%end%>

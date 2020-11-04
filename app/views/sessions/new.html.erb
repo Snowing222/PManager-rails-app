@@ -1,7 +1,7 @@
 <%= render partial: "layouts/errors", locals: {error_object: @user} %>
 
 <h1>Please Log In</h1>
-<%=form_tag(sessions_path) %>
+<%=form_tag(login_path) %>
   <p>
   <%=label_tag :email%>
   <%=text_field_tag :email%>
@@ -13,3 +13,5 @@
   </p>
 
   <%=submit_tag "Log In"%>
+  <br>
+  <p>New User? <%=link_to 'Sign up NOW!', new_user_path%></p>

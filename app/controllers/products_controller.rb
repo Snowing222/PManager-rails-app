@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
         @design_partners = User.DESIGN_PARTNER
         @manufacture_partners = User.PRODUCTION_PARTNER
         @product.product_status = "INACTIVE"
+     
     end
 
     def create
