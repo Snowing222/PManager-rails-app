@@ -5,4 +5,7 @@ class User < ApplicationRecord
     belongs_to :company
     has_secure_password
     enum role: [:PRODUCTION_PARTNER, :DESIGN_PARTNER, :MANUFACTURE_PARTNER]
+    validates :email, presence: true, uniqueness: true
+
+
 end

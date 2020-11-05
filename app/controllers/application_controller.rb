@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
     helper_method :current_user, :logged_in?
 
+    private
+
     def current_user
         @current_user||=User.find_by(id: session[:user_id])
     end
@@ -9,8 +11,6 @@ class ApplicationController < ActionController::Base
         !!current_user
       
     end
-
-    private
  
     def require_login
       return head(:forbidden) unless session.include? :user_id

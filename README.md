@@ -13,6 +13,12 @@
 3.image
 
 4.css
+
+5.polymophic
+
+6.how to publish
+
+
 # README
 
 This README would normally document whatever steps are necessary to get the

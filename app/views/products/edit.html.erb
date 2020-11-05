@@ -1,0 +1,48 @@
+<%= render partial: "layouts/errors", locals: {error_object: @product} %>
+
+<h1>EDIT PRODUCT</h1>
+
+  <%=form_for @product do |f|%>
+  <p>
+  <strong><%=f.label :season%></strong>
+  <%=f.select :season, Product.seasons.keys%>
+  </p>
+
+  <p>
+  <strong><%=f.label :style_number%></strong>
+  <%=f.text_field :style_number %>
+  </p>
+
+  <p>
+  <strong><%=f.label :image_url%></strong>
+  <%=f.text_field :image_url %>
+  </p>
+
+  <strong><%=f.label :deadline%></strong>
+  <%=f.date_field :deadline%>
+
+  <p>
+  <strong><%=f.label :description%></strong>
+  <%=f.text_area :description, size: '50x10'%>
+  </p>
+
+  <p>
+  <strong><%=f.label :design_partner%></strong>
+  <%=f.collection_select :design_partner_id, @design_partners, :id, :name%>
+  </p>
+
+  <p>
+  <strong><%=f.label :manufacturer_partner%></strong>
+  <%=f.collection_select :manufacture_partner_id, @manufacture_partners, :id, :name%>
+  </p>
+
+  <p>
+  <strong><%=f.label :production_partner%></strong>
+  <%=f.collection_select :production_partner_id, @production_partners, :id, :name%>
+  </p>
+  
+  <%=f.hidden_field :product_status%>
+
+  <%=f.submit%>
+
+  <%end%>

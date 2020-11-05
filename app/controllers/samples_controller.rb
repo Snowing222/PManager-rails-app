@@ -10,7 +10,8 @@ class SamplesController < ApplicationController
     def create
         @sample = Sample.new(sample_params) 
         if @sample.save
-            # @owner = User.find_by(id: from sample_params? )
+            @sample.product.product_status ="ACTIVE"
+            @sample.product.save
             @status = @sample.statuses.build
             redirect_to @sample
         else
@@ -26,6 +27,7 @@ class SamplesController < ApplicationController
 
     def show
         @sample = Sample.find_by(id:params[:id])
+        @statuses = @sample.statuses
     end
     
     private

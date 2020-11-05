@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
      
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
-            redirect_to @user
+            redirect_to products_path
         elsif !@user 
             flash[:error] = "Username doesnt exist. Please Sign Up"
             redirect_to new_user_path

@@ -37,7 +37,7 @@
     <br>
     <h2>PRODUCT HISTORY</h2>
     <%@product.samples.each do |s|%>
-      <p><strong>Sample Type: <%=s.sample_type%></strong></p>
+      <p><strong>Sample Type: <%=link_to s.sample_type, s%></strong></p>
       <p><strong>Last Update:</strong> <%=s.updated_at%>
       <br>
       <br>

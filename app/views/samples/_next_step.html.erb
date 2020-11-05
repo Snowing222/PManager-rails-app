@@ -1,0 +1,19 @@
+<%if @sample.sample_current_status.PENDING_SAMPLE_FROM_MANUFACTURE_PARTNER? %>
+    <%=form_for @sample.statuses.build do |f|%>
+    <%=f.hidden_field :current_state, :value => "PENDING_SAMPLE_REVIEW_FROM_DESIGN_PARTNER"%>
+    <%=f.hidden_field :sample_id%>
+    <%=f.hidden_field :owner_id, :value => @sample.product.design_partner.id%>
+    <%=f.submit "SMPL RECEIVED"%> 
+<%end%>
+
+
+<%elsif @sample.sample_current_status.PENDING_SAMPLE_REVIEW_FROM_DESIGN_PARTNER?%>
+    <%=form_for @sample.statuses.build do |f|%>
+    <p><strong>Sample Status: </strong><%=f.select :current_state, Status.current_states.keys.slice(2,4)%></p>
+    <%=f.hidden_field :sample_id%>
+    <%=f.submit "UPDATE SAMPLE STATUS"%>
+    <%end%>
+
+<%elsif @sample.product.require_new_sample?%>
+    <%=link_to 'REQUEST A NEW SAMPLE', new_product_sample_path(@sample.product)%>  
+<%end%>

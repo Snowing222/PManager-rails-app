@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
     before_action :redirect_logged_in_user_to_homepage, only: [:new]
+    
+    def index
+        @users = User.all
+    end
 
     def new
         @user = User.new

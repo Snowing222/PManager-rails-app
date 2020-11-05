@@ -1,0 +1,32 @@
+<%=link_to 'CREATE A NEW PRODUCT', new_product_path%>
+
+<div class="table-responsive">
+
+<table class="table table-striped table-sm">
+    <thead>
+      <tr>
+          <th>Status</th>
+          <th>Season</th>
+          <th>Style number</th>
+          <th>Current sample</th>
+          <th>Sample status</th>
+          <th>#</th>
+      </tr>
+    </thead>
+
+     <tbody>
+        <%@products.each do |p|%>
+            <tr>
+              <td><%=p.product_status%></td>
+              <td><%=p.season%></td>
+              <td><%=link_to p.style_number, p%></td>
+              <td><%=set_current_sample_status p %></td>
+              <td><%=p.product_current_state%></td>   
+              <td><%=next_action(p)%></td>
+            </tr>
+             
+        <%end%>
+    </tbody>
+
+</table>
+</div>
