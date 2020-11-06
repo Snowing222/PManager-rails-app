@@ -2,7 +2,7 @@ class StatusesController < ApplicationController
     before_action :require_login
 
     def create
-        byebug
+     
         @status = Status.new(status_params)
         if @status.save
             @status.set_product_status
