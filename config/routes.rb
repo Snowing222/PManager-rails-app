@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   resources :products do
     resources :samples
   end
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :edit, :show, :update, :index]
   resources :samples
   resources :companies
 
   get    '/login'   => 'sessions#new'
-  post   '/sessions'   => 'sessions#create'
+  post   '/login'   => 'sessions#create'
   delete '/logout'  => 'sessions#destroy'
   get '/'=> 'sessions#new'
   get '/home' => 'products#index'

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     before_action :redirect_logged_in_user_to_homepage, only: [:new]
+    before_action :require_login, only: [:index, :edit, :show]
     
     def index
         @users = User.all
@@ -37,7 +38,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find_by(id: session[:user_id])
+        @user = User.find_by(id: params[:id])
     end
 
     private

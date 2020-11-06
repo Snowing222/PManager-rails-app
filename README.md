@@ -18,6 +18,21 @@
 
 6.how to publish
 
+--------------------
+WORKFLOW
+1.CREATE A PRODUCT => product show page link_to sample new form=> use form_for @sample (product.samples.build in controller)=> collect sample_type,comment from user, and get @sample.product value through hidden_field.
+use field_for @statuses(@sample.statuses.build in controller) assign current_state, owner_id value, collect date from user.
+When submit sample request=> pass sample_params to samples#create
+sample_params = 
+{"sample"=>{"sample_type"=>"PROTO", "comment"=>"",  "product_id"=>"3", 
+           "statuses_attributes"=>{"0"=>{"current_state"=>"PENDING_SAMPLE_FROM_MANUFACTURE_PARTNER", "owner_id"=>"12", "deadline"=>""}}}
+
+create @sample and @status at the same time (accept nested data, custom statuses_attributes= method)
+*If I click that button. As long as I select sample type. there should be no bad data.
+redirect_to sample show page.
+
+
+
 
 # README
 

@@ -17,6 +17,7 @@
       </tr>
     </tbody>
 </table>
+
 <table class="table table-striped table-sm">
     <thead>
       <tr>
@@ -24,13 +25,10 @@
         <th>Role</th>
       </tr>
     </thead>
+
     <tbody>
-         <%@company.users.each do |u|%>
-           <tr>
-           <td><%=link_to u.name, u%></td>
-           <td><%=u.role%></td>
-           </tr>
-         <%end%>
+         <%= render :collection => @users, :partial =>'td_user', :as => :user %>
     </tbody>
-    </table>
+
+  </table>
 </div>

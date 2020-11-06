@@ -11,40 +11,68 @@ Product.delete_all
 Sample.delete_all
 Status.delete_all
 
-Company.create([{name:"Fall Fashion company",address:"China",zipcode:"11112"},{name:"Alice Fashion company",address:"China",zipcode:"11113"},{name:"LA Fashion company",address:"LA",zipcode:"11110"}])
-Company.create(name:"My company")
+Company.create!([{id:"1",name:"Fall Fashion company",address: "GuanZhou CHINA",zipcode:"11112"},
+                {id:"2",name:"Alice Fashion company",address: "ShenZhen CHINA",zipcode:"11113"},
+                {id:"3",name:"LA Fashion company",address: "Deli INDIA",zipcode:"11110"},
+                {id:"4",name:"XUE DESIGN STUDIO",address: "NewYork USA",zipcode:"010101"}])
 
-xue = User.new(name:"xue",phone:"11111111111",email:"xue@gmail.com", role:1, password:"pw")
-stella = User.new(name:"stella",phone:"11111111112",email:"stella@gmail.com",role:1, password:"pw")
-alice = User.new(name:"alice",phone:"11111111113",email:"alice@gmail.com",role:1, password:"pw")
-xue.company = Company.last
-stella.company = Company.last
-alice.company = Company.last
+              
+5.times do |index|
+    User.create!(id: Faker::Number.unique.within(range: 1..5),
+                 name: Faker::Name.name,
+                 phone: Faker::PhoneNumber.phone_number,
+                 email: Faker::Internet.email,
+                 role: 0,
+                 password: Faker::Internet.password,
+                 company_id: 4
+                )
+end
 
-anj = User.new(name:"anj",phone:"21111111111",email:"anj@gmail.com", role:0, password:"pw")
-elsa = User.new(name:"elsa",phone:"21111111111",email:"elsa@gmail.com", role:0, password:"pw")
-anj.company = Company.last
-elsa.company = Company.last
+5.times do |index|
+    User.create!(id: Faker::Number.unique.within(range: 6..10),
+                 name: Faker::Name.name,
+                 phone: Faker::PhoneNumber.phone_number,
+                 email: Faker::Internet.email,
+                 role: 1,
+                 password: Faker::Internet.password,
+                 company_id: 4
+                )
+end
 
-jane = User.new(name:"jane",phone:"21111111111",email:"jane@gmail.com", role:2, password:"pw")
-hellen = User.new(name:"hellen",phone:"21111111111",email:"hellen@gmail.com", role:2, password:"pw")
-jane.company = Company.first
-hellen.company = Company.first
+5.times do |index|
+    User.create!(id: Faker::Number.unique.within(range: 11..15),
+                 name: Faker::Name.name,
+                 phone: Faker::PhoneNumber.phone_number,
+                 email: Faker::Internet.email,
+                 role: 2,
+                 password: Faker::Internet.password,
+                 company_id: Faker::Number.within(range: 1..3)
+                )
+end
 
-xue.save
-stella.save
-alice.save
-anj.save
+20.times do |index|
+    Product.create!(id: Faker::Number.unique.within(range: 1..20),
+                    season: Faker::Number.within(range: 0..3),
+                    style_number: Faker::Number.number(digits: 5),
+                    description: Faker::Lorem.paragraph,
+                    product_status: 1,
+                    deadline: Faker::Date.between(from: '2020-12-5', to: '2021-12-5'),
+                    production_partner_id: Faker::Number.within(range: 1..5),
+                    design_partner_id: Faker::Number.within(range: 6..10),
+                    manufacture_partner_id: Faker::Number.within(range: 11..15)
+    )
+end
 
-elsa.save
-jane.save
-hellen.save
+# 20.times do |index|
+#     Sample.create!(id: Faker::Number.unique.within(range: 1..20),
+#                     comment: Faker::Lorem.paragraph,
+#                     sample_type: 0,
+#                     product_id: Faker::Number.unique.within(range: 1..20)
+#     )
+# end
 
-product = Product.new(style_number:"001",description:"skirt")
-product.production_partner = anj
-product.manufacture_partner = jane
-product.design_partner = xue
-product.save
+
+
 
 
 

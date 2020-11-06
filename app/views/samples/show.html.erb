@@ -1,10 +1,8 @@
       <h5> <%=link_to @sample.product.season + " " + @sample.product.style_number, @sample.product%></h5>
+      
       <p><strong>Sample Type:</strong> <%=@sample.sample_type%></p>
       <p><strong>Sample Status:</strong> <%=@sample.sample_current_status.current_state%></p>
-      <%if @sample.sample_current_status.owner_id%>
-      <p><strong>Responsible Party:</strong> <%=link_to User.find_by(id: @sample.sample_current_status.owner_id).name, User.find_by(id: @sample.sample_current_status.owner_id)%></p>
-      <%end%>
-      
+      <p><strong>Responsible Party:</strong><%=display_sample_owner @sample%>   
       <p><strong>Last Update:</strong> <%=@sample.sample_current_status.updated_at%></p>
       <p><strong>Comment:</strong><%=@sample.comment%></p>
        
@@ -22,4 +20,4 @@
         </li>
       <%end%>   
       </ul>   
-    
+   

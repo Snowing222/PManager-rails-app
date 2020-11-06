@@ -15,17 +15,7 @@
     </thead>
 
      <tbody>
-        <%@products.each do |p|%>
-            <tr>
-              <td><%=p.product_status%></td>
-              <td><%=p.season%></td>
-              <td><%=link_to p.style_number, p%></td>
-              <td><%=set_current_sample_status p %></td>
-              <td><%=p.product_current_state%></td>   
-              <td><%=next_action(p)%></td>
-            </tr>
-             
-        <%end%>
+        <%=render :collection => @products, :partial => 'product_td', :as => :product%>
     </tbody>
 
 </table>

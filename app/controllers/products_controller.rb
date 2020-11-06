@@ -12,8 +12,8 @@ class ProductsController < ApplicationController
             @products = Product.pending_manufacture
 
         elsif params[:query]=="PENDING_SAMPLE_REVIEW_FROM_DESIGN_PARTNER"
-            @products = Product.pending_design
-            
+            @products = Product.pending_design     
+
         else
             @products = Product.all
         end

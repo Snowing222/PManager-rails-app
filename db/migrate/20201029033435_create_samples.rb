@@ -4,7 +4,6 @@ class CreateSamples < ActiveRecord::Migration[6.0]
       t.text :comment
       t.integer :sample_type
       t.integer :product_id
-      t.integer :status_id
 
       t.timestamps
     end

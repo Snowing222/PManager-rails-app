@@ -27,7 +27,7 @@ class SamplesController < ApplicationController
 
     def show
         @sample = Sample.find_by(id:params[:id])
-        @statuses = @sample.statusesser
+        @statuses = @sample.statuses
     end
     
     private
