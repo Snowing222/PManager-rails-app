@@ -1,6 +1,6 @@
 class Sample < ApplicationRecord
     belongs_to :product
-    has_many :statuses
+    has_many :statuses, :dependent => :destroy
     delegate :production_partner, to: :product
     delegate :design_partner, to: :product
     delegate :manufacture_partner, to: :product 

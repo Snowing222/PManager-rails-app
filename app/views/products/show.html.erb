@@ -1,6 +1,7 @@
 <h1><%=@product.season%> <%=@product.style_number%></h1>
-<%=link_to 'EDIT PRODUCT', edit_product_path(@product)%>
-  
+<span><%=link_to 'EDIT PRODUCT', edit_product_path(@product)%></span>
+<span><%=link_to "DELETE PRODUCT", @product, method: "delete", data: { confirm: "Are you sure?" } %><span>
+  <p><img src="/assets/skirt1.JPG" />
   </p><strong>Product Description</strong>
   <%=@product.description%></p>
   
@@ -42,4 +43,4 @@
       <br>
       <br>
     <%end%>
-   <%end%>
+  <%end%>

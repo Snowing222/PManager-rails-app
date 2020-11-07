@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  resources :statuses
+  resources :statuses, only: [:create]
   resources :products do
-    resources :samples
+    resources :samples,only: [:new]
   end
   resources :users, only: [:new, :create, :edit, :show, :update, :index]
-  resources :samples
-  resources :companies
+  resources :samples,only:[:create, :show]
+  resources :companies,only: [:show]
 
   get    '/login'   => 'sessions#new'
   post   '/login'   => 'sessions#create'

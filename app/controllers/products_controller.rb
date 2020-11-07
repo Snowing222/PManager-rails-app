@@ -67,6 +67,13 @@ class ProductsController < ApplicationController
         @user = current_user
     end
 
+    def destroy
+        @product = Product.find_by(id: params[:id])
+        @product.delete
+
+        redirect_to products_path
+    end
+
     private
     
     def product_params
