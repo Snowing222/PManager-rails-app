@@ -3,6 +3,8 @@
     <td><%=product.season%></td>
     <td><%=link_to product.style_number, product%></td>
     <td><%=set_current_sample product %></td>
-    <td><%=set_product_current_state product%></td>   
+    <td><%=set_product_current_state product%></td>  
+    <td><%=product.deadline%></td>
     <td><%=display_product_next_action(product)%></td>
+  
 </tr>
