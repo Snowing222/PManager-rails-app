@@ -1,12 +1,12 @@
 <h1><%=@product.season%> <%=@product.style_number%></h1>
 <span><%=link_to 'EDIT PRODUCT', edit_product_path(@product)%></span>
 <span><%=link_to "DELETE PRODUCT", @product, method: "delete", data: { confirm: "Are you sure?" } %><span>
-  <p><img src="/assets/skirt1.JPG" />
+  </p><strong>Image</strong>
+
+  </p><%= image_tag @product.image_url, :class=>"product_image"%>
+
   </p><strong>Product Description</strong>
   <%=@product.description%></p>
-  
-  </p><strong>Image</strong>
-  <%=@product.image_url%></p>
 
   </p><strong>Create at:</strong>
   <%=@product.created_at%> By <%=link_to @user.role, @user%></p>
@@ -22,13 +22,13 @@
   <%=@product.product_status%></p>
   
   </p><strong>Design Partner:</strong>
-  <%=@product.design_partner.name%></p>
+   <%=render '/users/user_email', :user => @product.design_partner%></p>
 
   </p><strong>Manufacture Partner:</strong>
-  <%=@product.manufacture_partner.name%></p>
+  <%=render '/users/user_email', :user => @product.manufacture_partner%></p>
 
   </p><strong>Production Partner:</strong>
-  <%=@product.production_partner.name%></p>
+  <%=render '/users/user_email', :user => @user%></p>
   
   <%if @product.samples.empty?%>
     <%=link_to "REQUEST A NEW SAMPLE", new_product_sample_path(@product.id) %>
@@ -37,10 +37,5 @@
     <hr>
     <br>
     <h2>PRODUCT HISTORY</h2>
-    <%@product.samples.each do |s|%>
-      <p><strong>Sample Type: <%=link_to s.sample_type, s%></strong></p>
-      <p><strong>Last Update:</strong> <%=s.updated_at%>
-      <br>
-      <br>
-    <%end%>
+    <%=render :collection => @samples, :partial => 'product_sample', :as => :sample%>
   <%end%>

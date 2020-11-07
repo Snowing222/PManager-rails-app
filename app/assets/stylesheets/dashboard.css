@@ -184,3 +184,9 @@ span {
 .field_with_errors input{
   border: 1px solid red;
 }
+
+.product_image {
+  height: 286px;
+  width: 400px;
+  border-style: double;
+}

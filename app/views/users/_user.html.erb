@@ -1,0 +1,7 @@
+<tr>
+    <td><%=user.name%></td>
+    <td><%=user.role%></td>
+    <td><%=render '/users/user_email', :user => user%></p></td>
+    <td><%=user.phone%></td>
+    <td><%=link_to user.company.name, user.company%></td>
+</tr>

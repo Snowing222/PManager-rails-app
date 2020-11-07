@@ -50,9 +50,10 @@ end
                 )
 end
 
-20.times do |index|
+17.times do |index|
     Product.create!(id: Faker::Number.unique.within(range: 1..20),
                     season: Faker::Number.within(range: 0..3),
+                    image_url: Faker::Number.unique.within(range: 1..17).to_s + ".JPG"
                     style_number: Faker::Number.number(digits: 5),
                     description: Faker::Lorem.paragraph,
                     product_status: 1,
@@ -63,13 +64,7 @@ end
     )
 end
 
-# 20.times do |index|
-#     Sample.create!(id: Faker::Number.unique.within(range: 1..20),
-#                     comment: Faker::Lorem.paragraph,
-#                     sample_type: 0,
-#                     product_id: Faker::Number.unique.within(range: 1..20)
-#     )
-# end
+
 
 
 

@@ -13,15 +13,7 @@
     </thead>
 
     <tbody>
-       <%@users.each do |u|%>
-         <tr>
-            <td><%=u.name%></td>
-            <td><%=u.role%></td>
-            <td><%=u.email%></td>
-            <td><%=u.phone%></td>
-            <td><%=link_to u.company.name, u.company%></td>
-        </tr>
-        <%end%>
+        <%=render :collection=>@users, :partial=>'user', :as=>:user%>
      </tbody>
 
 </table>

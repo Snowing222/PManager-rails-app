@@ -1,4 +1,5 @@
 <tr>
   <td><%=link_to user.name, user%></td>
   <td><%=user.role%></td>
+  <td><%=render '/users/user_email',:user=> user%></td>
 </tr>
