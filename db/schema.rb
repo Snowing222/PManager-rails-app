@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_30_024234) do
+ActiveRecord::Schema.define(version: 2020_11_07_200653) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -32,6 +32,10 @@ ActiveRecord::Schema.define(version: 2020_10_30_024234) do
     t.integer "manufacture_partner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["design_partner_id"], name: "index_products_on_design_partner_id"
+    t.index ["manufacture_partner_id"], name: "index_products_on_manufacture_partner_id"
+    t.index ["product_status"], name: "index_products_on_product_status"
+    t.index ["production_partner_id"], name: "index_products_on_production_partner_id"
   end
 
   create_table "samples", force: :cascade do |t|
@@ -40,6 +44,8 @@ ActiveRecord::Schema.define(version: 2020_10_30_024234) do
     t.integer "product_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_samples_on_product_id"
+    t.index ["sample_type"], name: "index_samples_on_sample_type"
   end
 
   create_table "statuses", force: :cascade do |t|
@@ -49,6 +55,8 @@ ActiveRecord::Schema.define(version: 2020_10_30_024234) do
     t.integer "sample_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["current_state"], name: "index_statuses_on_current_state"
+    t.index ["sample_id"], name: "index_statuses_on_sample_id"
   end
 
   create_table "users", force: :cascade do |t|
