@@ -20,6 +20,9 @@
 
   </p><strong>Status:</strong>
   <%=@product.product_status%></p>
+
+  </p><strong>Factory:</strong>
+  <%=link_to @product.factory.name, @product.factory%></p>
   
   </p><strong>Design Partner:</strong>
    <%=render '/users/user_email', :user => @product.design_partner%></p>

@@ -1,5 +1,7 @@
 class User < ApplicationRecord
     has_many :production_products, class_name: "Product", foreign_key: :production_partner_id
+    has_many :factories, through: :production_products, source: :factory
+
     has_many :design_products, class_name: "Product",  foreign_key: :design_partner_id
     has_many :manufacture_products, class_name: "Product", foreign_key: :manufacture_partner_id
     belongs_to :company, optional: true
@@ -13,5 +15,6 @@ class User < ApplicationRecord
         end
     end
 
-
 end
+
+

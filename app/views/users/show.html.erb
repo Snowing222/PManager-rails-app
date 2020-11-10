@@ -23,7 +23,13 @@
           <%=@user.company.name%></p>
       </tr>
 
-      <%=link_to 'EDIT PROFILE', edit_user_path(@user)%>
+      <tr>
+          <p><strong>SOURCES:</strong></p>
+          <%@user.factories.uniq.each do |f|%>
+            <%=link_to f.name, f%><br>
+          <%end%>
+      </tr>
 
 </table>
+  <%=link_to 'EDIT PROFILE', edit_user_path(@user)%>
 </div>

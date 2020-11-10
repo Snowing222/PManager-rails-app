@@ -10,13 +10,19 @@
 {current_status: approved, owner_id:nil, sample_id}
 {current_status: reject, owner_id:nil, sample_id}
 
-3.image
+3.upload image
 
 4.css
 
 5.polymophic
 
 6.how to publish
+
+7.when to use ENUM when to use model
+
+
+
+
 
 --------------------
 WORKFLOW

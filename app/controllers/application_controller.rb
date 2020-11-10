@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
 
     def redirect_logged_in_user_to_homepage
         if logged_in?
-            redirect_to user_path(current_user)
+            redirect_to products_path
         end
     end
 end

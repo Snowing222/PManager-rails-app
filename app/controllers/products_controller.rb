@@ -31,6 +31,8 @@ class ProductsController < ApplicationController
 
     def create
         @product = Product.new(product_params)
+        @product.factory = @product.manufacture_partner.company
+        
         if @product.save
             redirect_to @product
         else
