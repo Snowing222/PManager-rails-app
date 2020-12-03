@@ -3,7 +3,11 @@ class UsersController < ApplicationController
     before_action :require_login, only: [:index, :edit, :show]
     
     def index
-        @users = User.all
+        if params[:search]
+            @users = User.search(params[:search])
+        else
+            @users = User.all
+        end
     end
 
     def new
@@ -45,4 +49,7 @@ class UsersController < ApplicationController
     def user_params
         params.require(:user).permit(:name, :email, :password, :password_confirmation, :phone, :role, :company_id)
     end
+
+    
+    
 end

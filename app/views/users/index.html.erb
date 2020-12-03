@@ -1,5 +1,11 @@
 <div class="table-responsive">
 
+<%=form_tag('/users', method: :get)%>
+<%=text_field_tag :search %>
+<%=submit_tag "search"%>
+<br>
+
+
 <table class="table table-striped table-sm">
     <thead>
       <tr>

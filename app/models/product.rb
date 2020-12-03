@@ -6,7 +6,7 @@ class Product < ApplicationRecord
     belongs_to :factory, class_name: "Company", foreign_key:"factory_id"
     
     has_many :samples, :dependent => :destroy
- 
+    has_many :statuses, through: :samples
 
     enum season: [:SUMMER2020, :FALL2020, :WINTER2020, :SUMMER2021]
     enum product_status: [:ACTIVE, :INACTIVE]

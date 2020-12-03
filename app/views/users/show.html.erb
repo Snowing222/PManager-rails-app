@@ -1,7 +1,7 @@
 <div class="table-responsive">
 
 <table class="table table-striped table-sm">
- 
+     
       <tr>
           <p><strong>NAME:</strong>
           <%=@user.name%></p>
@@ -21,6 +21,9 @@
       <tr>
           <p><strong>COMPANY:</strong>
           <%=@user.company.name%></p>
+          <%if @user.company%>
+          <%=@user.company.name%>
+          <%end%>
       </tr>
 
       <tr>
