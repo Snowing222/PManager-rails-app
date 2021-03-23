@@ -52,17 +52,19 @@ end
 
 17.times do |index|
     Product.create!(id: Faker::Number.unique.within(range: 1..20),
-                    season: Faker::Number.within(range: 0..3),
-                    image_url: Faker::Number.unique.within(range: 1..17).to_s + ".JPG"
+                    season: Faker::Number.within(range: 1..3),
+                    image_url: Faker::Number.unique.within(range: 1..17).to_s + ".JPG",
                     style_number: Faker::Number.number(digits: 5),
                     description: Faker::Lorem.paragraph,
                     product_status: 1,
+                    factory_id: Faker::Number.within(range: 1..3),
                     deadline: Faker::Date.between(from: '2020-12-5', to: '2021-12-5'),
                     production_partner_id: Faker::Number.within(range: 1..5),
                     design_partner_id: Faker::Number.within(range: 6..10),
                     manufacture_partner_id: Faker::Number.within(range: 11..15)
     )
 end
+
 
 
 

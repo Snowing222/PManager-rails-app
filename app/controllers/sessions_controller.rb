@@ -1,11 +1,6 @@
 class SessionsController < ApplicationController
     before_action :redirect_logged_in_user_to_homepage, only: [:new]
     
-    def new
-
-    end
-
-
     def create
         if auth
             @user = User.find_or_create_by_omniauth(auth)
