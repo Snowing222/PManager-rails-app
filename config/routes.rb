@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   delete '/logout'  => 'sessions#destroy'
   get '/'=> 'sessions#new'
   get '/home' => 'products#index'
-  get 'https://pmanager-app.herokuapp.com/auth/google_oauth2/callback' => 'sessions#create'
+  get ' https://pmanagering.herokuapp.com/auth/google_oauth2/callback' => 'sessions#create'
+ 
   
   get '/auth/failure' => '/'
   
