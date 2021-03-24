@@ -1,28 +1,22 @@
-1.request a sample
-=>link to "new form"=> can only pass extra information like product_id through url? 
-   products/7/samples/new
-=>create a form w/get method=>
-   /samples/new?product_id=7&commit=REQUEST+A+NEW+SAMPLE
+1. Why this app
+Pain points of Production manager:
+- liaison between manufacture and internal production/design team
+- Manage sampls from multiple manufacture
+- Manage samples in differet development stage 
+- Manage samples with different deadline and make sure to work with all parties to meet the deadline.
 
-2.4 statuses instance
-{current_status: pending from factory, owner_id:factory_id, sample_id}
-{current_status: pending from design, owner_id:design_id, sample_id}
-{current_status: approved, owner_id:nil, sample_id}
-{current_status: reject, owner_id:nil, sample_id}
+2. Background/Industry knowledge
+- Product life cycle <-> responsible by different parties
 
-3.upload image
+3. Some obstacles when planning the project
+- how to set approperiate properties to each model? What should be a stand alone model, what should be a property(ENUM)
+- how to wire model relationship propertly
+- A product belongs to a production partner, a manufacture partner and a design partner
+- Work flow. How to display the right UI and send the right information with each click?
 
-4.css
-
-5.polymophic
-
-6.how to publish
-
-7.when to use ENUM when to use model
-
-
-
-
+4. deploy to heroku
+- how to seed data properly with postgres
+- how to deploy omniauth to heroku
 
 --------------------
 WORKFLOW
