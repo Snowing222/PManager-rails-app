@@ -1,22 +1,27 @@
-1. Why this app
+1. What is it
+It's an app to help production managers to automate workflow, manage sample life cycles and partners
+
+2. Why this app
 Pain points of Production manager:
 - liaison between manufacture and internal production/design team
 - Manage sampls from multiple manufacture
 - Manage samples in differet development stage 
 - Manage samples with different deadline and make sure to work with all parties to meet the deadline.
 
-2. Background/Industry knowledge
+3. Background/Industry knowledge
 - Product life cycle <-> responsible by different parties
 
-3. Some obstacles when planning the project
+4. Some obstacles when planning the project
 - how to set approperiate properties to each model? What should be a stand alone model, what should be a property(ENUM)
 - how to wire model relationship propertly
 - A product belongs to a production partner, a manufacture partner and a design partner
 - Work flow. How to display the right UI and send the right information with each click?
 
-4. deploy to heroku
+5. deploy to heroku
 - how to seed data properly with postgres
 - how to deploy omniauth to heroku
+
+
 
 --------------------
 WORKFLOW
