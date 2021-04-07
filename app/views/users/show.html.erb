@@ -18,11 +18,12 @@
           <p><strong>EMAIL:</strong>
           <%=@user.email%></p>
       </tr>
+      <% if @user.company%>
       <tr>
           <p><strong>COMPANY:</strong>
           <%=@user.company.name%></p>
       </tr>
-
+    <%end%>
       <tr>
           <p><strong>SOURCES:</strong></p>
           <%@user.factories.uniq.each do |f|%>

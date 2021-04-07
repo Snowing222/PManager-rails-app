@@ -1,5 +1,5 @@
 1. What is it
-It's an app to help production managers to automate workflow, manage sample life cycles and partners
+It's an app to help production managers to automate workflow, manage samples life cycles, manage partner relationships
 
 2. Why this app
 Pain points of Production manager:
